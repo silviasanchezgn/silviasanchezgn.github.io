@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página La Salle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(/Fotos/Fondo.png); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        nav {
+            width: 100%;
+            background: rgba(0, 40, 85, 0.9);
+            padding: 10px 0;
+            position: relative;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            margin: 5px 15px;
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            z-index: 10;
+            list-style: none;
+            padding: 10px 0;
+            margin-top: 10px;
+        }
+        .submenu li {
+            margin: 0;
+        }
+        .submenu li a {
+            color: #002855;
+            padding: 10px 20px;
+            display: block;
+            font-size: 14px;
+        }
+        .submenu li a:hover {
+            background-color: #f1f1f1;
+        }
+        .show {
+            display: block !important;
+        }
+        .content {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+        }
+        .la-salle-title {
+            font-family: 'Arvo', serif;
+            font-size: clamp(3rem, 10vw, 5rem);
+            color: #002855;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+            margin-bottom: 10px;
+        }
+        .proyectos-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #002855;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            nav ul { flex-direction: column; align-items: center; }
+            .submenu { position: static; transform: none; margin-top: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li class="dropdown">
+                <a id="btn-proyectos">Proyectos ▼</a>
+                <ul class="submenu" id="menu-proyectos">
+                    <li><a href="sociales.html">Sociales</a></li>
+                    <li><a href="educativas.html">Educativas</a></li>
+                    <li><a href="sensibilizacion.html">Sensibilización</a></li>
+                    <li><a href="recaudacion.html">Recaudación</a></li>
+                    <li><a href="deportivas.html">Deportivas</a></li>
+                </ul>
+            </li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1 class="la-salle-title">LA SALLE</h1>
+        <div class="proyectos-box">
+            <h2>Proyectos</h2>
+            <p>Página de proyectos de La Salle</p>
+        </div>
+    </div>
+
+    <script>
+        const btnProyectos = document.getElementById('btn-proyectos');
+        const menuProyectos = document.getElementById('menu-proyectos');
+
+        btnProyectos.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            menuProyectos.classList.toggle('show');
+        });
+
+        window.onclick = function(event) {
+            if (!event.target.matches('#btn-proyectos')) {
+                if (menuProyectos.classList.contains('show')) {
+                    menuProyectos.classList.remove('show');
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

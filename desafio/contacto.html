@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Proyecto Intercentros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(/Fotos/Fondo.png); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        nav {
+            width: 100%;
+            background: rgba(0, 40, 85, 0.9);
+            padding: 10px 0;
+            position: relative;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li { margin: 5px 15px; position: relative; }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            z-index: 10;
+            list-style: none;
+            padding: 10px 0;
+            margin-top: 10px;
+        }
+
+        .submenu li a {
+            color: #002855;
+            padding: 10px 20px;
+            display: block;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .show { display: block !important; }
+
+        .la-salle-title {
+            font-family: 'Arvo', serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: #002855;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+            margin: 30px 0 10px 0;
+            text-align: center;
+        }
+        .contact-wrapper {
+            width: 95%;
+            max-width: 1100px;
+            margin-bottom: 50px;
+        }
+
+        .city-title {
+            color: #002855;
+            font-family: 'Arvo', serif;
+            border-bottom: 3px solid #002855;
+            display: inline-block;
+            margin: 40px 0 20px 0;
+            font-size: 1.8rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #002855;
+            border-radius: 12px;
+            padding: 25px;
+            text-decoration: none;
+            color: #002855;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-card:hover {
+            transform: scale(1.02);
+            background-color: #ffffff;
+            box-shadow: 0 8px 15px rgba(0, 40, 85, 0.2);
+        }
+
+        .icon { font-size: 30px; }
+
+        .info-text h3 { margin: 0; font-size: 1.1rem; }
+        .info-text p { margin: 5px 0 0 0; color: #555; font-size: 0.95rem; }
+
+        @media (max-width: 600px) {
+            nav ul { flex-direction: column; align-items: center; }
+            .submenu { position: static; transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li class="dropdown">
+                <a id="btn-proyectos">Proyectos ▼</a>
+                <ul class="submenu" id="menu-proyectos">
+                    <li><a href="sociales.html">Sociales</a></li>
+                    <li><a href="educativas.html">Educativas</a></li>
+                    <li><a href="sensibilizacion.html">Sensibilización</a></li>
+                    <li><a href="recaudacion.html">Recaudación</a></li>
+                    <li><a href="deportivas.html">Deportivas</a></li>
+                </ul>
+            </li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="la-salle-title">NUESTROS CENTROS</h1>
+
+    <div class="contact-wrapper">
+        
+        <h2 class="city-title">📍 La Salle Institución (Madrid)</h2>
+        <div class="contact-grid">
+            <a href="mailto:colegio@lasalleinstitucion.es" class="contact-card">
+                <div class="icon">📧</div>
+                <div class="info-text">
+                    <h3>Email Madrid</h3>
+                    <p>colegio@lasalleinstitucion.es</p>
+                </div>
+            </a>
+            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0xd41884fded4de7b:0x782ef7af484de21b?sa=X&ved=1t:8290&ictx=111" target="_blank" class="contact-card">
+                <div class="icon">🏠</div>
+                <div class="info-text">
+                    <h3>Dirección Madrid</h3>
+                    <p>Blas cabrera, 40</p>
+                </div>
+            </a>
+        </div>
+
+        <h2 class="city-title">📍 La Salle Gràcia (Barcelona)</h2>
+        <div class="contact-grid">
+            <a href="mailto:gracia@lasalle.cat" class="contact-card">
+                <div class="icon">📧</div>
+                <div class="info-text">
+                    <h3>Email Barcelona</h3>
+                    <p>gracia@lasalle.cat</p>
+                </div>
+            </a>
+            <a href="https://www.google.com/maps/search/La+Salle+Gracia+Barcelona" target="_blank" class="contact-card">
+                <div class="icon">🏠</div>
+                <div class="info-text">
+                    <h3>Dirección Barcelona</h3>
+                    <p>Plaça del Nord, 14, 08024 Barcelona</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <script>
+        const btnProyectos = document.getElementById('btn-proyectos');
+        const menuProyectos = document.getElementById('menu-proyectos');
+
+        btnProyectos.addEventListener('click', function(e) {
+            e.preventDefault();
+            menuProyectos.classList.toggle('show');
+        });
+
+        window.onclick = function(event) {
+            if (!event.target.matches('#btn-proyectos')) {
+                if (menuProyectos.classList.contains('show')) {
+                    menuProyectos.classList.remove('show');
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

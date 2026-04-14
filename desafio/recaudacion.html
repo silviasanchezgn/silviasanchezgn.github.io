@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recaudación - La Salle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+                .card {
+    transition: all 0.3s ease; 
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.card:hover {
+    transform: translateY(-10px); 
+    background-color: #ffffff; 
+    box-shadow: 0 12px 20px rgba(0, 40, 85, 0.3); 
+    border-color: #004a99;
+}
+.card-image {
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-image {
+    transform: scale(1.05); 
+}
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(/Fotos/Fondo.png); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        nav {
+            width: 100%;
+            background: rgba(0, 40, 85, 0.9);
+            padding: 10px 0;
+            position: relative;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 5px 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            z-index: 10;
+            list-style: none;
+            padding: 10px 0;
+            margin-top: 10px;
+        }
+
+        .submenu li a {
+            color: #002855;
+            padding: 10px 20px;
+            display: block;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .show { display: block !important; }
+
+        .la-salle-title {
+            font-family: 'Arvo', serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: #002855;
+            margin: 30px 0 10px 0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+            gap: 25px;
+            width: 90%;
+            max-width: 1000px;
+            padding: 40px 0;
+            justify-content: center
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #002855;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background-color: #ddd;
+        }
+
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card-content h3 {
+            color: #002855;
+        }
+        .admin-form-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 40px 0;
+    padding-bottom: 50px;
+}
+
+.form-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid #002855;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.form-card h2 {
+    color: #002855;
+    font-family: 'Arvo', serif;
+    margin-top: 0;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    color: #002855;
+    margin-bottom: 5px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: sans-serif;
+    box-sizing: border-box; 
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 12px;
+    background-color: #002855;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-enviar:hover {
+    background-color: #004a99;
+}
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li>
+            <a id="btn-proyectos">Proyectos ▼</a>
+            <ul class="submenu" id="menu-proyectos">
+                <li><a href="sociales.html">Sociales</a></li>
+                <li><a href="educativas.html">Educativas</a></li>
+                <li><a href="sensibilizacion.html">Sensibilización</a></li>
+                <li><a href="recaudacion.html">Recaudación</a></li>
+                <li><a href="deportivas.html">Deportivas</a></li>
+            </ul>
+        </li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+</nav>
+
+<h1 class="la-salle-title">RECAUDACIÓN</h1>
+
+<div class="grid-container">
+    <div class="card">        <div class="card-image" style="background-image: url(/Fotos/operacion\ KG.jpg);"></div>
+<div class="card-content"><h3>OPERACIÓN KILO</h3><p>Campaña solidaria en la que se recogen alimentos no perecederos para ayudar a familias en situación de vulnerabilidad. Los estudiantes participan activamente promoviendo la recogida y colaborando en la organización.
+    <h3>📍 La Salle Sagrado Corazón </h3>
+</p></div></div>
+    <div class="card">        <div class="card-image" style="background-image: url(/Fotos/aaaaaab.jpg);"></div>
+<div class="card-content"><h3>MERCADO SOLIDARIO DE NAVIDAD</h3><p>Evento organizado durante la época navideña donde se venden productos elaborados por alumnos o donados, con el objetivo de recaudar fondos para proyectos solidarios y ONG.
+    <h3>📍  La Salle Mollerussa </h3> 
+</p></div></div>
+    <div class="card">        <div class="card-image" style="background-image: url(/Fotos/aaaaaaaONG.jpg);"></div>
+<div class="card-content"><h3>MERCADILLO SOLIDARIO PARA ONG</h3><p>Actividad en la que se venden artículos de segunda mano o hechos a mano para recaudar dinero destinado a organizaciones no gubernamentales y causas sociales.
+    <h3>📍  La Salle Virlecha </h3> 
+</p></div></div>
+    <div class="card">        <div class="card-image" style="background-image: url(/Fotos/aaaatorneo.jpg);"></div>
+<div class="card-content"><h3>TORNEO DEPORTIVO SOLIDARIO</h3><p>Competición deportiva organizada con fines solidarios, donde la participación o entrada contribuye a recaudar fondos para causas benéficas, fomentando valores como el trabajo en equipo y la solidaridad.
+    <h3>📍 La Salle Mollerussa </h3>    
+</p></div></div>
+    </div>
+    <div class="admin-form-container">
+        <div class="form-card">
+            <h2> ¿Quieres añadir un nuevo proyecto relacionado con la Recaudación?</h2>
+            <p>Rellena los datos para que podamos añadirlo a la web.</p>
+            
+            <form action="https://formspree.io/f/TU_ID_AQUÍ" method="POST" class="new-project-form">
+                <div class="input-group">
+                    <label>Título del Proyecto:</label>
+                    <input type="text" name="titulo" placeholder="Ej: Recogida de ropa" required>
+                </div>
+    
+                <div class="input-group">
+                    <label>Tu Correo de Contacto:</label>
+                    <input type="email" name="email" placeholder="tu@email.com" required>
+                </div>
+    
+                <div class="input-group">
+                    <label>Descripción detallada:</label>
+                    <textarea name="descripcion" rows="4" placeholder="Explica de qué trata la acción..." required></textarea>
+                </div>
+    
+                <button type="submit" class="btn-enviar">Enviar Propuesta</button>
+            </form>
+        </div>
+    </div>
+<script>
+const btnProyectos = document.getElementById('btn-proyectos');
+const menuProyectos = document.getElementById('menu-proyectos');
+
+btnProyectos.addEventListener('click', function(e) {
+    e.preventDefault();
+    menuProyectos.classList.toggle('show');
+});
+</script>
+
+</body>
+</html>

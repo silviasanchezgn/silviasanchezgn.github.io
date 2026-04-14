@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos - La Salle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(/Fotos/Fondo.png); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        nav {
+            width: 100%;
+            background: rgba(0, 40, 85, 0.9);
+            padding: 10px 0;
+            position: relative;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 5px 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            z-index: 10;
+            list-style: none;
+            padding: 10px 0;
+            margin-top: 10px;
+        }
+
+        .submenu li a {
+            color: #002855;
+            padding: 10px 20px;
+            display: block;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .show { display: block !important; }
+
+        .la-salle-title {
+            font-family: 'Arvo', serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: #002855;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+            margin: 30px 0 10px 0;
+            text-align: center;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1000px;
+            padding: 40px 0;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #002855;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            background-color: #ffffff;
+            box-shadow: 0 12px 20px rgba(0, 40, 85, 0.3);
+            border-color: #004a99;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background-color: #ddd; 
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px 0;
+            color: #002855;
+            font-size: 1.2rem;
+        }
+
+        .card-content p {
+            margin: 0;
+            color: #333;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 600px) {
+            nav ul { flex-direction: column; align-items: center; }
+            .submenu { position: static; transform: none; }
+            .grid-container { grid-template-columns: 1fr; }
+        }
+        .admin-form-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 40px 0;
+    padding-bottom: 50px;
+}
+
+.form-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid #002855;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.form-card h2 {
+    color: #002855;
+    font-family: 'Arvo', serif;
+    margin-top: 0;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    color: #002855;
+    margin-bottom: 5px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: sans-serif;
+    box-sizing: border-box; 
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 12px;
+    background-color: #002855;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-enviar:hover {
+    background-color: #004a99;
+}
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li class="dropdown">
+                <a id="btn-proyectos">Proyectos ▼</a>
+                <ul class="submenu" id="menu-proyectos">
+                    <li><a href="sociales.html">Sociales</a></li>
+                    <li><a href="educativas.html">Educativas</a></li>
+                    <li><a href="sensibilizacion.html">Sensibilización</a></li>
+                    <li><a href="recaudacion.html">Recaudación</a></li>
+                    <li><a href="deportivas.html">Deportivas</a></li>
+                </ul>
+            </li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="la-salle-title">NUESTROS PROYECTOS SOCIALES</h1>
+
+    <div class="grid-container">
+        <div class="card">
+            <div class="card-image" style="background-image: url(/Fotos/Adipa-sede-03.jpeg);"></div>
+            <div class="card-content">
+                <h3>TIENDA EN ASOCIACIÓN ADIPA</h3>
+                <p>Es una alianza de aprendizaje e inclusión donde alumnos de La Salle imparten talleres prácticos a usuarios de ADIPA para mejorar sus habilidades sociales y laborales.
+                    <h3>📍 La Salle Virlecha</h3>
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image" style="background-image: url(/Fotos/alimentos-1024x682.jpeg);"></div>
+            <div class="card-content">
+                <h3>OPERACIÓN KILO</h3>
+                <p>La Operación Kilo en La Salle es una campaña solidaria de recogida de alimentos no perecederos organizada por los centros educativos para ayudar a familias y colectivos en situación de vulnerabilidad.</p>
+                <h3>📍 La Salle Sagrado Corazón </h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image" style="background-image: url(/Fotos/1IMG_3013-1536x2048.webp);"></div>
+            <div class="card-content">
+                <h3>UNIRAID</h3>
+                <p>Antiguos alumnos del colegio recorrerán 2.400 km en un rally solidario por Marruecos para entregar 400 kg de material escolar donado por La Salle Bonanova en zonas necesitadas. El equipo, compuesto por 8 personas y 4 vehículos, atravesará antiguas rutas del París-Dakar a partir del 10 de febrero.</p>
+                <h3>📍 La Salle La Seu d'Urgell </h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image" style="background-image: url(/Fotos/20141215-I-Mercadillo-Solidario-XMas-La-Salle2.jpg);"></div>
+            <div class="card-content">
+                <h3>MERCADO SOLIDARIO DE NAVIDAD</h3>
+                <p>Varios centros educativos de La Salle organizan mercadillos solidarios de Navidad como parte de sus campañas navideñas y actividades de voluntariado (PROYDE).</p>
+                <h3>📍 La Salle Mollerussa </h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image" style="background-image: url(/Fotos/img_37469.jpeg);"></div>
+            <div class="card-content">
+                <h3>MERCADILLO SOLIDARIO PARA ONG</h3>
+                <p>Iniciativas educativas y benéficas, a menudo organizadas por alumnos, que recaudan fondos para proyectos de comercio justo, ayuda social y proyectos educativos en Líbano u otros países, frecuentemente celebrados entre enero y marzo</p>
+                <h3>📍 La Salle Virlecha</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image" style="background-image: url(/Fotos/image006.jpg);"></div>
+            <div class="card-content">
+                <h3>RUTA PEREGRINA</h3>
+                <p>La Ruta Peregrina de La Salle Sagrado Corazón (Madrid) es una experiencia educativa y espiritual organizada para alumnos de Formación Profesional. Se trata de un recorrido de convivencia que combina formación, historia y naturaleza, a menudo vinculado al Camino de Santiago o a rutas históricas madrileñas, fomentando valores lasalianos.</p>
+                <h3>📍 La Salle Sagrado Corazón </h3>
+            </div>
+        </div>
+   
+    </div>
+    <div class="admin-form-container">
+        <div class="form-card">
+            <h2> ¿Quieres añadir un nuevo proyecto relacionado con las obras Sociales?</h2>
+            <p>Rellena los datos para que podamos añadirlo a la web.</p>
+            
+            <form action="https://formspree.io/f/TU_ID_AQUÍ" method="POST" class="new-project-form">
+                <div class="input-group">
+                    <label>Título del Proyecto:</label>
+                    <input type="text" name="titulo" placeholder="Ej: Recogida . . . " required>
+                </div>
+    
+                <div class="input-group">
+                    <label>Tu Correo de Contacto:</label>
+                    <input type="email" name="email" placeholder="tu@email.com" required>
+                </div>
+    
+                <div class="input-group">
+                    <label>Descripción detallada:</label>
+                    <textarea name="descripcion" rows="4" placeholder="Explica de qué trata la acción..." required></textarea>
+                </div>
+    
+                <button type="submit" class="btn-enviar">Enviar Propuesta</button>
+            </form>
+        </div>
+        
+    <script>
+        const btnProyectos = document.getElementById('btn-proyectos');
+        const menuProyectos = document.getElementById('menu-proyectos');
+
+        btnProyectos.addEventListener('click', function(e) {
+            e.preventDefault();
+            menuProyectos.classList.toggle('show');
+        });
+
+        window.onclick = function(event) {
+            if (!event.target.matches('#btn-proyectos')) {
+                if (menuProyectos.classList.contains('show')) {
+                    menuProyectos.classList.remove('show');
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
